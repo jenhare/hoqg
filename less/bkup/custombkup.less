@@ -1,0 +1,68 @@
+body.site {
+  padding: 20px;
+  background-color: #ffffff;
+  background-image: url('../images/bg3.png'),url('../images/bg3.png') ;
+    background-repeat: repeat-x; 
+    background-attachment: fixed;
+    background-position: 0 0, 0 bottom; 
+}
+/* jlh header text dark red */
+  .brand {
+
+	color: #8F1A1A;
+	-webkit-transition: color .5s linear;
+	-moz-transition: color .5s linear;
+	-o-transition: color .5s linear;
+	transition: color .5s linear;
+}
+/* Header text regular red on mouse hover*/
+.brand:hover {
+	color: #cd2121;
+	text-decoration: none;
+}
+
+/* jlh main guest menu - removes white space between top and bottom lines */
+.navigation {
+  padding: 0 0 0 0;
+}
+
+/*Guest main menu items: apear arial, all caps, bigger and grey, remove rounded border to make flat select */
+.nav-pills > li > a {
+  font: arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.15em;
+  -webkit-border-radius: 0px; /* 5px */
+  -moz-border-radius: 0px; /* 5px */
+  border-radius: 0px; /* 5px */
+}
+
+
+
+/* style for category blog links copied from bootstrap - vertical memu styling?*/
+.nav-tabs.nav-stacked > li > a {
+	border: 0px solid #ddd; /*jlh 1px solid #ddd */
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+    font-size: 1.25em;
+}
+.nav-tabs.nav-stacked > li:first-child > a {
+	-webkit-border-top-right-radius: 0px;/*jlh  4 all*/
+	-moz-border-radius-topright: 0px;/*jlh  */
+	border-top-right-radius: 0px;/*jlh  */
+	-webkit-border-top-left-radius:0px;/*jlh  */
+	-moz-border-radius-topleft: 0px;/*jlh  */
+	border-top-left-radius: 0px;/*jlh  */
+}
+.nav-tabs.nav-stacked > li:last-child > a {
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-right-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-left-radius: 4px;
+}
+div.cat-children.blog.h3 {
+  display: none;
+}
