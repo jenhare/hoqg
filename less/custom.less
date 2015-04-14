@@ -9,19 +9,10 @@ body {
     background-position:0 0, 40px 40px;
 }
 
-
-/* removed thick black border from bgwrap 
- border: 10px solid darken(@HOQGLinkColor, 8%);
-    -webkit-border-radius: 0 0 20px 20px;
-     -moz-border-radius: 0 0 20px 20px;
-          border-radius: 0 0 20px 20px;
-    padding: 20px 0 20px 0;
-*/
-
 #bgwrap {
   max-width: 80%;
   .center-block();
-  background-color: #ceebfb;
+  background-color: @HOQGltblue;
      -webkit-border-radius: 0 0 20px 20px;
      -moz-border-radius: 0 0 20px 20px;
           border-radius: 0 0 20px 20px;
@@ -49,14 +40,16 @@ h6 { font-size: @baseFontSize * 0.85; } // ~12px
 
 
 nav {
+  background-color: @HOQGltblue;
   padding-bottom: 15px;
   border-bottom: 2px solid #5f5f5f;
-    border-top: 0px solid rgba(0, 0, 0, 0.075);
-    }
+  border-top: 0px solid rgba(0, 0, 0, 0.075);
+  margin-left: auto;
+  margin-right: auto;
+  }
 
 
-
-/*.navbar .nav ul li{
+.navbar .nav ul li{
     margin-left: auto;
     margin-right: auto;
   }
@@ -130,12 +123,7 @@ header div h1 a{
 }
 // makes navbar background light blue and centered?
 
-nav {
-  background-color: @HOQGltblue;
- 
-   margin-left: auto;
-   margin-right: auto;
-}
+
 
 nav .navbar-header > a{
   color: @HOQGLinkColor;
@@ -539,6 +527,12 @@ div #acyarchivelisting td .buttonreset, {
       @media (max-width: @navbarCollapseWidth) {  // 979px) {
           /*nav bar drop down taken from protostar*/
           
+        .nav-collapse .nav > li > a:hover {
+          background-color: transparent;
+          color: @white;
+        }
+
+
          .nav-collapse .nav {
           float: left;
          }
@@ -549,7 +543,7 @@ div #acyarchivelisting td .buttonreset, {
               left: auto;
               z-index: 1000;
               display: block;
-              float: left;
+              float: none;
               min-width: 160px;
               padding: 5px 0;
               margin: 2px 0 0;
@@ -570,28 +564,30 @@ div #acyarchivelisting td .buttonreset, {
               background-clip: padding-box;
           }
           
+         
           .navbar .btn-navbar {
-              background-color: #009900;
-              display: block;
-              float: left;
-          }
-          .navbar .btn-navbar {
-              background-color: #5f5f5f;
-              background-image: linear-gradient(to bottom, #b5e1fc, #b5e1fc);
+              background-color: @HOQGLinkColor;
+              background-image: linear-gradient(to bottom, @HOQGLinkColor, @HOQGLinkColor);
               background-repeat: repeat-x;
-              border-color: #5f5f5f #5f5f5f #6cc3f9;
+              border-color: @HOQGLinkColor;
               box-shadow: 0 0px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.075);
-              color: #5f5f5f;
+              color: @white;
               display: block;
               margin-left: 5px;
               margin-right: 5px;
               padding: 7px 10px;
               text-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+              min-width: 80px;
+              float: right;
+              text-align: left
+              font-size: 1.25em;
+
           }
 
          .navbar .nav {
               background-color: #6b0000;
               border-radius: 10px;
+       
           }
 
         .navbar .nav > li > a {
@@ -608,9 +604,23 @@ div #acyarchivelisting td .buttonreset, {
           nav ul.nav-child li a {
               font-size: 16px;
               display: block;
-
             }
-         
+      .navbar .nav >li:active, 
+ .navbar .nav >li:focus {
+      border-top: 2px solid @hoqglogoblue;
+      background-color: @HOQGLinkColor; /*transparent; @hoqglogoblue;*/
+  }
+   .navbar .nav > .active > li, 
+   .navbar .nav > .active > li:hover, 
+   .navbar .nav > .active > li:focus {
+    background-color: transparent;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+    color: #00ff00;
+    text-decoration: none;
+}
+
+
+
      /*jlh responsive menu active styling*/
      .navbar .nav > ul.nav-child  > li > active > a
                {
@@ -669,7 +679,7 @@ nav .navbar-header > a{
           clear: both;
           display: block;
           position: relative;
-          float: left;
+          float: none;
         }
           /*  4/7/14 end change for sub sub item */  
       } /* end of media for 979px */
@@ -682,6 +692,13 @@ nav .navbar-header > a{
       content: url( '../images/smsqlogo101.gif'  );
       padding-right: 10px;
 }
+
+.navbar .btn-navbar {
+   width: 100%;
+  text-align: center;
+  padding-left: 10px;
+}
+
 
     #bgwrap {
       max-width: 95%;
