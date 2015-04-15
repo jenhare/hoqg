@@ -1,0 +1,725 @@
+
+/* Adds the background design to the outter page */
+body {
+
+    background-color: @HOQGbodyBackground;
+    background-image: radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%),
+    radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%);
+    background-size:80px 80px;
+    background-position:0 0, 40px 40px;
+}
+
+#bgwrap {
+  max-width: 80%;
+  .center-block();
+  background-color: @HOQGltblue;
+     -webkit-border-radius: 0 0 20px 20px;
+     -moz-border-radius: 0 0 20px 20px;
+          border-radius: 0 0 20px 20px;
+
+}
+#content {
+    margin-left: 10px;
+
+}
+
+h1 { font-size: @baseFontSize * 2; } // ~32px
+h2 { font-size: @baseFontSize * 1.75; } // ~28px
+h3 { font-size: @baseFontSize * 1.5; } // ~24px
+h4 { font-size: @baseFontSize * 1.1; } // ~18px
+h5 { font-size: @baseFontSize; }
+h6 { font-size: @baseFontSize * 0.85; } // ~12px
+
+.navbar-inner {
+   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); 
+  }
+
+.navbar {
+  margin-bottom: 0;
+}
+
+
+nav {
+  background-color: @HOQGltblue;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #5f5f5f;
+  border-top: 0px solid rgba(0, 0, 0, 0.075);
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+
+.navbar .nav ul li{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/* puts red around menu list items - pills */
+.navbar .nav >li {
+    padding: 2px 5px;
+    margin: 0px 3px 0px 3px;
+    border-top: 2px solid #7f0000;
+    background-color: #6b0000;
+  
+    -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  }
+
+/* on main menu hover, turns pills background color blue and border */
+.navbar .nav >li:hover{
+    border-top: 2px solid @hoqglogoblue;
+    background-color: @hoqglogoblue;
+  }
+
+ .navbar .nav >li:active, 
+ .navbar .nav >li:focus {
+      border-top: 2px solid @hoqglogoblue;
+      background-color: @hoqglogoblue;
+  }
+
+  //background color of drop-down menu
+/*.navbar .nav > li {
+      background-color: #6b0000;
+  }*/
+
+
+  //menu button text color and stitch border
+.navbar  .nav >li> a{
+      color: #eee;
+      margin: 0;
+      padding: 8px;
+     text-shadow: none;
+      border: 1px dashed #eee;
+      display: inline-block;
+      foat: left;
+      color: #fff;
+  }
+
+
+
+//menu button color
+.navbar-inner .btn .btn-navbar{
+  color: #6b0000;
+}
+
+ /*adds charm logo before Site title*/
+header h1::before{
+  content: url( '../images/smcolCharmlogo.gif'  );
+  padding-right: 10px;
+}
+
+header {
+   padding-left: 20px;
+  /* color: @HOQGbodyBackground; jlh 3/31*/
+  background-color: @HOQGltblue;
+}
+
+header div h1 a{
+  font-size: 1.25em;
+  line-height: 2em;
+  max-height: 152px;
+  color: @HOQGbodyBackground;
+}
+// makes navbar background light blue and centered?
+
+
+
+nav .navbar-header > a{
+  color: @HOQGLinkColor;
+    font-family: Georgia;
+  font-size: 1.25em;
+  text-decoration: none;
+}
+/* Navigation Submenus */
+// The dropdown menu (ul)
+// ----------------------
+nav {
+  .nav-child {
+    position: absolute;
+    top: 95%;
+    left: 0;
+    z-index: @zindexDropdown;
+    display: none; // none by default, but block on "open" of the menu
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0; // override default ul
+    list-style: none;
+    background-color: @dropdownBackground;
+    border: 1px solid #ccc; // Fallback for IE7-8
+    border: 1px solid @dropdownBorder;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    .border-radius(0px);
+    .box-shadow(0 5px 10px rgba(0,0,0,.2));
+    -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+    
+    // Aligns the dropdown menu to right
+    &.pull-right {
+      right: 0;
+      left: auto;
+    }
+    
+    // Dividers (basically an hr) within the dropdown
+    .divider {
+      .nav-divider(@dropdownDividerTop, @dropdownDividerBottom);
+    }
+    
+    // Links within the dropdown menu
+    a {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-size: @baseFontSize;
+      font-weight: normal;
+      line-height: @baseLineHeight;
+      color: @dropdownLinkColor;
+      white-space: nowrap;
+    }
+  }
+  .nav > li {
+    position: relative;
+  }
+  .nav > li:hover > .nav-child,
+  .nav > li > a:focus + .nav-child, {
+    display: block;
+  }
+  .nav-child:before {
+    position: absolute;
+    top: -7px;
+    left: 9px;
+    display: inline-block;
+    border-right: 0px solid transparent;
+    border-bottom: 0px solid #ccc;
+    border-left: 0px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: '';
+  }
+  .nav-child:after {
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    display: inline-block;
+    border-right: 0px solid transparent;
+    border-bottom: 0px solid #ffffff;
+    border-left: 0px solid transparent;
+    content: '';
+  }
+}
+
+// Hover state
+// -----------
+nav .nav-child li > a:hover,
+nav .nav-child li > a:focus,
+nav .nav-child:hover > a {
+  text-decoration: none;
+  color: @hoqglogoblue;
+  background-color:transparent;
+  #gradient > .vertical(@white, darken(@white, 0%));
+}
+
+#major {
+  border-top: 10px solid darken(@HOQGLinkColor, 8%);
+  padding-left: 5px;
+  padding-right: -5px;
+}
+
+#content {
+  padding-right: 20px;
+}
+
+#content .page-header {
+  background-color: #990000;
+  color: #fff;
+  border-radius: 4px;
+}
+
+//not in use start
+    /*.contact {
+        margin-right: 20px;
+    }*/
+
+    /*#sidebar {
+      margin-top: 25px;
+      padding-left: 5px;
+      padding-right: 10px;
+    }*/
+
+#aside  {
+  margin: 25px 5px 25px 0;
+
+}
+
+.well {
+border: none;
+  color: #fff;
+
+
+    /* jlh commented out 
+    .border-top-serrated(15px, @HOQGltblue);
+    .border-bottom-serrated(15px, @HOQGltblue);
+    */
+}
+
+    /* 
+    #aside .well ul.latestnews li.latestnews a
+    */
+
+#aside ul.latestnews  { background-color: @HOQGltblue;
+
+}
+
+#aside >ul.lastestnews >li.latestnews  {
+  
+  background-color: @HOQGltblue;
+}
+
+.well .page-header {
+  margin-top: 10px;
+  padding-top: 15px;
+
+}
+      /*#sidebar .nav-menu li a{
+        font-size: 1.25em;
+        padding: 5px 0;
+        color: #fff; 
+       background-color: @hoqglogoblue;
+      }
+      .sidebar-nav {
+        padding-left: 10px;
+        .border-top-serrated(15px, @HOQGltblue);
+        .border-bottom-serrated(15px, @HOQGltblue);
+        background-color: @hoqglogoblue;
+      }*/
+
+      /* left menu module header white: member login
+      .sidebar-nav h3 {
+        color: @white;
+      }*/
+
+      /* Removes the forgot / reset password link
+      .sidebar-nav #login-form li a {
+        /*display: none;
+      }*/
+
+      /*#login-form  h3{
+        color: #fff;
+      }*/
+
+
+      /*.sidebar-nav .moduletable_menu {
+       background-color: @HOQGltblue;
+       border-radius: 8px;
+
+       padding: 20px 0px 10px 20px;
+       margin-right: 30px;
+       margin-bottom: 20px;
+      }*/
+
+      /*.sidebar-nav>li>a{}*/
+       
+
+
+      /*.sidebar-nav>li>a:hover,
+      .sidebar-nav>li>a:active{
+        color: darken(#fff, 12%);
+        background-color: @hoqglogoblue;
+      }*/
+      td.mod_events_latest {
+        background-color: @HOQGltblue;
+      }
+
+
+
+ remove text about birthdate from roster
+.controls {
+  display: none;
+}
+
+
+#footer {
+  margin: 0 20px;
+}
+
+/* removes text -subcategories- from menu cat - blog layouts */
+div.cat-children h3 {
+ background-color: #000099;
+  color: #fff;
+  font-weight: normal;
+  font-family: 'arial', sans-serif;
+  padding-left: 50px;
+  border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+
+}
+
+div .blog .cat-children > h3{
+  display: none;
+ }
+  
+/*div.cat-children.h3{
+  display: none;
+}*/
+div.cat-children.div.h3 {
+  border-bottom: none;
+ padding-left: 15px;   /*don't need b/c #content:padding-right:20px */
+}
+
+
+div .items-more .li a {
+  font-size: 1.5em;
+}
+
+div .blog .span12 .item column-1{
+  padding-left: 20px;
+}
+
+ div .blog .span12 .page-header a{
+font-family: 'arial', sans-serif;
+  color: #fff;
+  font-size: 24px;
+  font-weight: normal;
+  padding-left: 20px;
+}
+
+div .blog h2 .subheading-category {
+  display: none;
+}
+
+/* span12 blog category image stylings - Should be the article titles */
+div .blog .span12 .page-header {
+  background-color: #000099;  /*3399ff; medium blue */
+/* red  background-color: #000099; */
+  padding-bottom: 0;
+  text-align: center;
+
+}
+
+/* span12 blog category image stylings - standard size by width and extra room on right for text */
+div .blog .span12 .item-image {
+  width: 200px;
+  height:auto;
+    padding-right: 15px;
+
+}
+/* 3/31 - not using Member home page has "featured" articles 
+div .blog-featured div.items-row h2 {
+  border-top: 2px solid #3399ff;
+  border-bottom: 2px solid #3399ff;
+  border-left: 2px solid #3399ff;
+  border-right: 2px solid #3399ff;
+ background-color: #000099;
+   .border-radius(6px);
+  padding: 5px 5px;
+  margin-left: 20px;
+  
+}
+*/
+/* Defines color of article titles which link to articles */
+div .blog-featured div.items-row h2 a {
+
+  color: #fff;
+  font-size: 28px;
+}
+
+
+/* New home page category button styling */
+.categories-listmh {
+  max-width: 300px;
+
+}
+/* 2 column blog articles styling
+size intro image
+*/
+div .blog .span6 .item-image {
+  width: 100px;
+  height:auto;
+
+}
+
+/* styling for 2 column category blog */
+.blog .span6  {
+  background-color: #008CFF; 
+  border-radius: 14px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+#content .page-header {
+  background-color: #008CFF;
+  text-align: center;
+}
+#content .page-header a  {
+  color: #fff;
+}
+
+.nav-pills.pull-right > li {
+  list-style-type: none;
+}
+
+/*styles for modal*/
+body.modal {
+    background-color: #fff;
+    background-image: none;
+    padding-top: 0;
+}
+
+
+
+  
+
+/* custom styling for News you can use mod using bt sliders */
+div.bt-cs_news {
+    /* styles news ycu title*/
+    h3 {
+      border: 1px solid #5f5f5f;
+      color: @hoqgmedblue; 
+      background-color: #f3f3f3;
+    }
+
+    /*style news ycu mod background */
+    .slides_container {
+        background-color: @hoqgmedblue;
+    }
+       
+    /* styles article titles.bt-cs .bt-inner .bt-title */
+    
+    .slides_container .bt-inner .bt-title {
+        color: #fff;
+    }
+
+    .bt_handles_num li.current a {
+    background: none repeat scroll 0 0 @HOQGLinkColor;
+    }
+}
+
+/* fix color  styling for article edit - tabs at top */
+.nav-tabs > .active > a,
+ .nav-tabs > .active > a:hover, 
+ .nav-tabs > .active > a:focus {
+        -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ceebfd;
+    border-color: #5f5f5f #5f5f5f transparent;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    color: #555555;
+    cursor: default;
+}
+
+div #acyarchivelisting td #acymailingsearch,
+div #acyarchivelisting .contentdescription,
+div #acyarchivelisting td .buttongo,
+div #acyarchivelisting td .buttonreset, {
+  display: none;
+}
+
+/* Max width: define pixel width for nav-bar to collapse to hamburger. Also, make submenu's not look like bubbles and overlap. Just have them expanded */
+      @media (max-width: @navbarCollapseWidth) {  // 979px) {
+          /*nav bar drop down taken from protostar*/
+          
+        .nav-collapse .nav > li > a:hover {
+          background-color: transparent;
+          color: @white;
+        }
+
+
+         .nav-collapse .nav {
+          float: left;
+         }
+
+          nav .nav-child {
+              position: relative;
+              top: auto;
+              left: auto;
+              z-index: 1000;
+              display: block;
+              float: none;
+              min-width: 160px;
+              padding: 5px 0;
+              margin: 2px 0 0;
+              list-style: none;
+              background-color: #fff; /*transparent;*/
+              border: 0px solid #ccc;
+              border: 0px solid rgba(0,0,0,0.2);
+              *border-right-width: 0px;
+              *border-bottom-width: 0px;
+              -webkit-border-radius: 0px;
+              -moz-border-radius: 0px;
+              border-radius: 0px;
+              -webkit-box-shadow: none;
+              -moz-box-shadow: none;
+              box-shadow: none;
+              -webkit-background-clip: padding-box;
+              -moz-background-clip: padding;
+              background-clip: padding-box;
+          }
+          
+         
+          .navbar .btn-navbar {
+              background-color: @HOQGLinkColor;
+              background-image: linear-gradient(to bottom, @HOQGLinkColor, @HOQGLinkColor);
+              background-repeat: repeat-x;
+              border-color: @HOQGLinkColor;
+              box-shadow: 0 0px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.075);
+              color: @white;
+              display: block;
+              margin-left: 5px;
+              margin-right: 5px;
+              padding: 7px 10px;
+              text-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+              min-width: 80px;
+              float: right;
+              text-align: left
+              font-size: 1.25em;
+
+          }
+
+         .navbar .nav {
+              background-color: #6b0000;
+              border-radius: 10px;
+       
+          }
+
+        .navbar .nav > li > a {
+            border: 1px dashed #eee;
+            color: #fff;
+            display: block;
+            float: none;
+            margin: 0;
+            padding: 8px;
+            text-shadow: none;
+            height: 100%;
+        }
+            
+          nav ul.nav-child li a {
+              font-size: 16px;
+              display: block;
+            }
+      .navbar .nav >li:active, 
+ .navbar .nav >li:focus {
+      border-top: 2px solid @hoqglogoblue;
+      background-color: @HOQGLinkColor; /*transparent; @hoqglogoblue;*/
+  }
+   .navbar .nav > .active > li, 
+   .navbar .nav > .active > li:hover, 
+   .navbar .nav > .active > li:focus {
+    background-color: transparent;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+    color: #00ff00;
+    text-decoration: none;
+}
+
+
+
+     /*jlh responsive menu active styling*/
+     .navbar .nav > ul.nav-child  > li > active > a
+               {
+               background-color: transparent ;
+               color: #009900; // #00009c;
+              }  
+          
+          nav .nav-child:before,
+            .nav-child:after {
+              display: block;
+            }
+      
+           /* 4/7/14 Start change for sub sub item.. */
+          nav ul.nav-child ul.nav-child a {
+              position: static;
+              padding: 0 0 0 30px;
+              color: 3399ff;
+              display: block;
+              float: left;
+          }
+      
+           nav ul.nav-child ul.nav-child ul.nav-child a {
+              padding: 0 0 0 40px;
+
+          }
+ 
+
+
+header h1 a{
+  font-size: 1em;
+}
+          
+
+nav .navbar-header > a{
+      color: @HOQGLinkColor;
+        font-family: Georgia;
+      font-size: 1.25em;
+      text-decoration: none;
+}
+          
+           body {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          #bgwrap {
+
+              max-width: 90%;
+
+          }
+
+
+
+        nav .nav-child {
+          clear: both;
+          display: block;
+          position: relative;
+          float: none;
+        }
+          /*  4/7/14 end change for sub sub item */  
+      } /* end of media for 979px */
+        
+    
+@media (max-width: 480px) {
+
+    /*adds charm logo before Site title*/
+    header h1::before{
+      content: url( '../images/smsqlogo101.gif'  );
+      padding-right: 10px;
+}
+
+.navbar .btn-navbar {
+   width: 100%;
+  text-align: center;
+  padding-left: 10px;
+}
+
+
+    #bgwrap {
+      max-width: 95%;
+      .center-block();
+/*      background-color: #ceebfb;
+       -webkit-border-radius: 0 0 20px 20px;
+       -moz-border-radius: 0 0 20px 20px;
+            border-radius: 0 0 20px 20px; */
+
+}
+          body {
+            width: 100%;
+          }
+
+          #bgwrap {
+
+              max-width: 100%;
+
+          }
+        header h1 a {
+        display: none;
+        }
+       
+    }      
